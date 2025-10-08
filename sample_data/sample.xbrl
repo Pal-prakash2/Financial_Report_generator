@@ -1,0 +1,20 @@
+<xbrl xmlns="http://www.xbrl.org/2003/instance" xmlns:ind-as="http://mca.gov.in/indas/2016">
+    <context id="C1">
+        <entity>
+            <identifier scheme="http://www.mca.gov.in/CIN">L12345MH1956PLC012345</identifier>
+        </entity>
+        <period>
+            <startDate>2023-04-01</startDate>
+            <endDate>2024-03-31</endDate>
+        </period>
+    </context>
+    <unit id="U1">
+        <measure>iso4217:INR</measure>
+    </unit>
+    <ind-as:TotalAssets contextRef="C1" unitRef="U1">1000</ind-as:TotalAssets>
+    <ind-as:TotalLiabilities contextRef="C1" unitRef="U1">600</ind-as:TotalLiabilities>
+    <ind-as:ShareholdersEquity contextRef="C1" unitRef="U1">400</ind-as:ShareholdersEquity>
+    <ind-as:RevenueFromOperations contextRef="C1" unitRef="U1">900</ind-as:RevenueFromOperations>
+    <ind-as:OtherIncome contextRef="C1" unitRef="U1">100</ind-as:OtherIncome>
+    <ind-as:Revenue contextRef="C1" unitRef="U1">1000</ind-as:Revenue>
+</xbrl>

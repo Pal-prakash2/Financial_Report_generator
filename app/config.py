@@ -2,7 +2,12 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Optional
 
-from pydantic import BaseSettings, Field
+try:
+    from pydantic_settings import BaseSettings
+except ImportError:  # pragma: no cover - compatibility for pydantic < 2.10
+    from pydantic import BaseSettings
+
+from pydantic import Field
 
 
 class Settings(BaseSettings):

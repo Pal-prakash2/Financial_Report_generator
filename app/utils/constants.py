@@ -1,3 +1,4 @@
 from decimal import Decimal
 
-ACCOUNTING_TOLERANCE = Decimal("1000")  # 1,000 rupees tolerance for rounding differences
+# Absolute tolerance applied when relative tolerance cannot be derived (e.g., base amount is zero).
+ACCOUNTING_TOLERANCE = Decimal("0")

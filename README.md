@@ -8,6 +8,7 @@ Automate extraction, validation, and delivery of financial data from Indian MCA 
 - **Validation Engine**: Ensure core accounting identities (Assets = Liabilities + Equity) stay within tolerance.
 - **REST API**: FastAPI endpoints to register companies and preview XBRL filings.
 - **Excel Exports**: Generate analyst-ready workbooks with audit trail hyperlinks.
+- **XBRL to Excel**: Upload MCA filings and download validated Excel workbooks with audit trails and validation highlights.
 - **Extensible Services**: Stubs for MCA monitoring and future automation.
 
 ## Project Layout
@@ -32,7 +33,7 @@ README.md               # Project documentation
 
 ### Prerequisites
 
-- Python 3.11+
+- Python 3.11+ (3.13 requires a Rust toolchain for pydantic; prefer 3.11/3.12 for easiest setup)
 - PostgreSQL 13+ (for persistent storage)
 
 ### Installation
@@ -62,6 +63,12 @@ Navigate to `http://127.0.0.1:8000/docs` for interactive Swagger docs.
 
 1. Register a company via `POST /api/v1/companies`.
 2. Upload an MCA XBRL file via `POST /api/v1/companies/{cin}/filings/preview` to receive standardized statements and validation feedback.
+
+### XBRL → Excel Conversion
+
+- Endpoint: `POST /api/v1/files/xbrl-to-excel`
+- Body: `multipart/form-data` with a single file field named `file` containing a `.xml` or `.xbrl` MCA AOC-4 filing (max 15 MB).
+- Response: `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet` attachment containing Balance Sheet, Income Statement, Cash Flow, and Audit Trail tabs with validation results and source links.
 
 ### Tests
 
